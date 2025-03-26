@@ -62,7 +62,7 @@ cp_str = st.selectbox("Chest Pain Type (CP)", list(cp_options.keys()))
 cp = cp_options[cp_str]
 trestbps = st.number_input("Resting Blood Pressure", min_value=80, max_value=200, value=120)
 chol = st.number_input("Cholesterol", min_value=100, max_value=600, value=200)
-fbs = st.selectbox("Fasting Blood Sugar > 120 mg/dl", [0, 1], format_func=lambda x: "Male" if x == 1 else "Female")
+fbs = st.selectbox("Fasting Blood Sugar > 120 mg/dl", [0, 1], format_func=lambda x: "false" if x == 1 else "true")
 restecg_options = {
     'normal' : 0,
     'abnormality' : 1,
@@ -71,7 +71,7 @@ restecg_options = {
 restecg_str = st.selectbox("Resting ECG", list(restecg_options.keys()))
 restecg = restecg_options[restecg_str]
 thalach = st.number_input("Max Heart Rate Achieved", min_value=60, max_value=220, value=150)
-exang = st.selectbox("Exercise Induced Angina", [0, 1], format_func=lambda x: "Male" if x == 1 else "Female")
+exang = st.selectbox("Exercise Induced Angina", [0, 1], format_func=lambda x: "false" if x == 1 else "true")
 oldpeak = st.number_input("ST Depression", min_value=0.0, max_value=6.2, value=1.0, step=0.1)
 slope_options = {
     'upsloping': 0,
