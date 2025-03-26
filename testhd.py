@@ -63,13 +63,32 @@ cp = cp_options[cp_str]
 trestbps = st.number_input("Resting Blood Pressure", min_value=80, max_value=200, value=120)
 chol = st.number_input("Cholesterol", min_value=100, max_value=600, value=200)
 fbs = st.selectbox("Fasting Blood Sugar > 120 mg/dl", ['false', 'true'])
-restecg = st.selectbox("Resting ECG", ['normal', 'abnormality', 'lv hypertrophy'])
+restecg_options = {
+    'normal' : 0,
+    'abnormality' : 1,
+    'lv hypertropy' : 2
+}
+restecg_str = st.selectbox("Resting ECG", list(restecg_options.keys()))
+restecg = restecg_options[restecg_str]
 thalach = st.number_input("Max Heart Rate Achieved", min_value=60, max_value=220, value=150)
 exang = st.selectbox("Exercise Induced Angina", ['false', 'true'])
 oldpeak = st.number_input("ST Depression", min_value=0.0, max_value=6.2, value=1.0, step=0.1)
-slope = st.selectbox("Slope of ST Segment", ['upsloping', 'flat', 'downsloping'])
+slope_options = {
+    'upsloping': 0,
+    'flat': 1,
+    'downsloping': 2
+}
+slope_str = st.selectbox("Slope of ST Segment", list(slope_options.keys()))
+slope = slope_options[slope_str]
 ca = st.number_input("Number of Major Vessels Colored", min_value=0, max_value=3, value=0, step=1)
-thal = st.selectbox("Thalassemia", ['normal', 'fixed defect', 'reversible'])
+thal_options = {
+    'normal': 0,
+    'fixed defect': 1,
+    'reversible': 2
+}
+thal_str = st.selectbox("Thalassemia", list(thal_options.keys()))
+thal = thal_options[thal_str]  # Convert string to numerical value
+
 
 if st.button("Predict"):
     model, scaler = joblib.load("heart_model.pkl")
