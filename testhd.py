@@ -7,6 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1Ys8d5vD0v_yqPPInC5zfm1gU70FPm9l4
 """
 
+pip install scikit-learn
 import streamlit as st
 import pandas as pd
 import numpy as np
